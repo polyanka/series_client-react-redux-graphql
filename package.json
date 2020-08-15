@@ -1,0 +1,57 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "devDependencies": {
+    "@babel/core": "^7.10.3",
+    "@babel/plugin-transform-typescript": "^7.10.5",
+    "@babel/preset-env": "^7.10.3",
+    "@babel/preset-react": "^7.10.1",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-redux": "^7.1.9",
+    "@types/react-router-dom": "^5.1.5",
+    "babel-jest": "^26.3.0",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^4.2.1",
+    "html-webpack-plugin": "^4.3.0",
+    "style-loader": "^1.2.1",
+    "typescript": "^3.9.7",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "antd": "^4.5.4",
+    "apollo-boost": "^0.4.9",
+    "graphql": "^15.3.0",
+    "react": "^16.13.1",
+    "react-apollo": "^3.1.5",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
+    "typescript": "^3.7.5"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "watch": "webpack-dev-server --open --watch --hot --mode development",
+    "build": "webpack --mode production",
+    "codegen:schema": "npx apollo client:download-schema --endpoint=http://localhost:9000/api",
+    "codegen:generate": "npx apollo client:codegen --localSchemaFile=schema.json --includes=src/**/*.ts --globalTypesFile=./src/lib/graphql/globalTypes.ts --target=typescript"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
