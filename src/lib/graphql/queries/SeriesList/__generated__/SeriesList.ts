@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { SeriesListFilter, StatusType, GenresType } from "./../../../globalTypes";
+import { GenresType, SeriesListFilter, StatusType } from "./../../../globalTypes";
 
 // ====================================================
 // GraphQL query operation: SeriesList
@@ -29,7 +29,8 @@ export interface SeriesList {
 }
 
 export interface SeriesListVariables {
-  genres: string;
+  genres?: GenresType | null;
+  name?: string | null;
   filter: SeriesListFilter;
   limit: number;
   page: number;

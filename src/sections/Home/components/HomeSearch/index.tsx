@@ -6,22 +6,22 @@ export const HomeSearch: FC = () => {
   return (
     <Row>
       <Col xs={12} md={6}>
-        <Link to="/series/fantasy">
+        <Link to="/series/genres/fantasy">
           <Card>FANTASY</Card>
         </Link>
       </Col>
       <Col xs={12} md={6}>
-        <Link to="/series/comics">
+        <Link to="/series/genres/comics">
           <Card>COMICS</Card>
         </Link>
       </Col>
       <Col xs={12} md={6}>
-        <Link to="/series/drama">
+        <Link to="/series/genres/drama">
           <Card>DRAMA</Card>
         </Link>
       </Col>
       <Col xs={12} md={6}>
-        <Link to="/series/thriller">
+        <Link to="/series/genres/thriller">
           <Card>THRILLER</Card>
         </Link>
       </Col>

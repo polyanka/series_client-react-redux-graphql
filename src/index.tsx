@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Layout } from 'antd';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
-import { Home, NotFound } from './sections';
+import { Home, NotFound, SeriesList } from './sections';
 import { AppHeader } from './lib/components';
 
 import 'antd/dist/antd.css';
@@ -30,7 +30,9 @@ const App = () => {
       <AppHeader />
       <Content>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route path="/" exact component={Home} />
+          <Route path="/series/genres/:genres" component={SeriesList} />
+          <Route path="/series/name/:name" component={SeriesList} />
           <Route component={NotFound} />
         </Switch>
       </Content>
