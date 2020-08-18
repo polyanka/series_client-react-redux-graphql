@@ -8,9 +8,9 @@ module.exports = (_env, argv) => {
     devtool: argv.mode === 'production' ? false : 'source-map',
     resolve: {
       extensions: ['.js', '.ts', '.tsx'],
-      // alias: {
-      //   '@src': path.resolve(__dirname, 'src/'),
-      // },
+      alias: {
+        '@src': path.resolve(__dirname, 'src/'),
+      },
     },
     module: {
       rules: [

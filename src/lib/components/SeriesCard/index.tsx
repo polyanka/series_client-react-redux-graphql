@@ -1,23 +1,23 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { SeriesList_seriesList_result } from '../../graphql/queries/SeriesList/__generated__/SeriesList';
-import { Card, Typography } from 'antd';
+import { Card } from 'antd';
+
+const { Meta } = Card;
 
 interface Props {
   series: SeriesList_seriesList_result;
 }
 
-const { Text } = Typography;
-
 export const SeriesCard: FC<Props> = ({ series }) => {
-  const { id, name } = series;
+  const { id, name, date, genres, status } = series;
 
   return (
     <Link to={`/series/${id}`}>
-      <Card hoverable>
-        <Text strong ellipsis>
-          {name}
-        </Text>
+      <Card title={name} hoverable>
+        <Meta title="Genres" description={genres} />
+        <Meta title="Status" description={status} />
+        <Meta title="Date" description={date} />
       </Card>
     </Link>
   );

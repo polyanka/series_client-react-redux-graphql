@@ -15,7 +15,7 @@ export const HomeSeriesList: FC<Props> = ({ title, seriesList }) => {
     <>
       <Title level={2}>{title}</Title>
       <List
-        grid={{ gutter: 12, column: 1, xs: 1 }}
+        grid={{ gutter: 16, column: 4, xs: 1, sm: 2, lg: 4 }}
         dataSource={seriesList}
         renderItem={(series) => (
           <List.Item>

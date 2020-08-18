@@ -1,4 +1,4 @@
-import { List, Typography, Affix } from 'antd';
+import { List, Typography, Row, Col, Divider } from 'antd';
 import React, { FC, useState, useEffect, useRef } from 'react';
 import { useQuery } from 'react-apollo';
 import { RouteComponentProps, Link } from 'react-router-dom';
@@ -54,19 +54,16 @@ export const SeriesList: FC<RouteComponentProps<MatchParams>> = ({ match }) => {
 
   const seriesListSectionElement =
     seriesList && seriesList.result.length ? (
-      <div>
-        <Affix offsetTop={64}>
-          <SeriesListPagination
-            filter={filter}
-            setFilter={setFilter}
-            total={seriesList.total}
-            page={page}
-            limit={PAGE_LIMIT}
-            setPage={setPage}
-          />
-        </Affix>
+      <SeriesListPagination
+        filter={filter}
+        setFilter={setFilter}
+        total={seriesList.total}
+        page={page}
+        limit={PAGE_LIMIT}
+        setPage={setPage}
+      >
         <List
-          grid={{ gutter: 8, column: 4, xs: 1, sm: 2, lg: 4 }}
+          grid={{ gutter: 16, column: 4, xs: 1, sm: 2, lg: 4 }}
           dataSource={seriesList.result}
           renderItem={(series) => (
             <List.Item>
@@ -74,9 +71,9 @@ export const SeriesList: FC<RouteComponentProps<MatchParams>> = ({ match }) => {
             </List.Item>
           )}
         />
-      </div>
+      </SeriesListPagination>
     ) : (
-      <div>
+      <>
         <Paragraph>
           No result fount for query <Text mark>"{valueRef.current}"</Text>
         </Paragraph>
@@ -84,7 +81,7 @@ export const SeriesList: FC<RouteComponentProps<MatchParams>> = ({ match }) => {
           Be the first person to create a{' '}
           <Link to="/create">series in this {nameRef}</Link>!
         </Paragraph>
-      </div>
+      </>
     );
 
   if (loading) {
@@ -96,9 +93,14 @@ export const SeriesList: FC<RouteComponentProps<MatchParams>> = ({ match }) => {
   }
   return (
     <>
-      <Title level={3}>
-        Results for {nameRef} "{valueRef.current}"
-      </Title>
+      <Row>
+        <Col xs={24}>
+          <Title level={3}>
+            Results for {nameRef} "{valueRef.current}"
+          </Title>
+          <Divider />
+        </Col>
+      </Row>
       {seriesListSectionElement}
     </>
   );

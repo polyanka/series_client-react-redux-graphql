@@ -16,6 +16,7 @@ export interface SeriesList_seriesList_result {
   date: number;
   status: StatusType;
   genres: GenresType[];
+  rating: number;
 }
 
 export interface SeriesList_seriesList {

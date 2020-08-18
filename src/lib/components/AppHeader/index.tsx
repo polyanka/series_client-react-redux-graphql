@@ -24,7 +24,7 @@ export const AppHeader = withRouter(
       if (timmedValue) {
         history.push(`/series/${timmedValue}`);
       } else {
-        ErrorMessage('Please enter a valid search!');
+        ErrorMessage({ message: 'Please enter a valid search!' });
       }
     };
     return (
@@ -35,12 +35,13 @@ export const AppHeader = withRouter(
           </Col>
           <Col span={16}>
             <Search
-              placeholder="Search genres"
+              placeholder="Search 'name'"
               enterButton
               value={search}
               onChange={(event) => setSearch(event.target.value)}
               onSearch={onSearch}
               style={{ display: 'block' }}
+              size="large"
             />
           </Col>
         </Row>

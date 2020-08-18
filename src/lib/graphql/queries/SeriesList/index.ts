@@ -22,6 +22,7 @@ export const SERIES_LIST = gql`
         date
         status
         genres
+        rating
       }
     }
   }

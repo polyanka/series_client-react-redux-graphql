@@ -7,6 +7,11 @@
 // START Enums and Input Objects
 //==============================================================
 
+export enum EpisodesFilter {
+  DATE_HIGH_TO_LOW = "DATE_HIGH_TO_LOW",
+  DATE_LOW_TO_HIGH = "DATE_LOW_TO_HIGH",
+}
+
 export enum GenresType {
   COMICS = "COMICS",
   DRAMA = "DRAMA",
