@@ -45,6 +45,9 @@
         "extensions": [".ts", ".tsx"],
         "paths": ["./src"]
       }
+    },
+    "react": {
+      "version": "detect"
     }
   }
 }

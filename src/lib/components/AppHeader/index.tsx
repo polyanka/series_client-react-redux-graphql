@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import { Layout, Input, Row, Col } from 'antd';
-import { ErrorMessage } from '../ErrorMessage';
 
 const { Header } = Layout;
 const { Search } = Input;
@@ -21,12 +20,12 @@ export const AppHeader = withRouter(
 
     const onSearch = (value: string) => {
       const timmedValue = value.trim();
+
       if (timmedValue) {
         history.push(`/series/${timmedValue}`);
-      } else {
-        ErrorMessage({ message: 'Please enter a valid search!' });
       }
     };
+
     return (
       <Header>
         <Row justify="center" align="middle" style={{ height: 60 }}>

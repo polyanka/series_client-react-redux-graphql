@@ -1,14 +1,14 @@
 import React, { FC, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
+import { SeriesDetails, SeriesEpisodes } from './components';
+import { ErrorMessage, Spinner } from '../../lib/components';
+import { SERIES } from '../../lib/graphql';
+import { EpisodesFilter } from '../../lib/graphql/globalTypes';
 import {
   Series as SeriesData,
   SeriesVariables,
 } from '../../lib/graphql/queries/Series/__generated__/Series';
-import { SERIES } from '../../lib/graphql';
-import { ErrorMessage } from '../../lib/components';
-import { SeriesDetails, SeriesEpisodes } from './components';
-import { EpisodesFilter } from '../../lib/graphql/globalTypes';
 
 interface MatchParams {
   id: string;
@@ -23,7 +23,7 @@ export const Series: FC<RouteComponentProps<MatchParams>> = ({ match }) => {
 
   const [episodesPage, setEpisodesPage] = useState(1);
 
-  const { data, loading, error } = useQuery<SeriesData, SeriesVariables>(
+  const { loading, error, data } = useQuery<SeriesData, SeriesVariables>(
     SERIES,
     {
       variables: {
@@ -36,20 +36,20 @@ export const Series: FC<RouteComponentProps<MatchParams>> = ({ match }) => {
   );
 
   if (loading) {
-    return <p>loading</p>;
+    return <Spinner />;
   }
 
   if (error) {
     return <ErrorMessage />;
   }
 
-  const series = data ? data.series : null;
+  const series = data?.series || null;
 
   const seriesDetailsElement = series ? (
     <SeriesDetails series={series} />
   ) : null;
 
-  const seriesEpisodes = series ? series.episodes : null;
+  const seriesEpisodes = series?.episodes || null;
 
   const seriesEpisodesElement = seriesEpisodes ? (
     <SeriesEpisodes

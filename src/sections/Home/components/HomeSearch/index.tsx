@@ -21,8 +21,8 @@ export const HomeSearch: FC = () => {
         </Link>
       </Col>
       <Col xs={12} md={6}>
-        <Link to="/series/genres/thriller">
-          <Card>THRILLER</Card>
+        <Link to="/series/genres/horror">
+          <Card>HORROR</Card>
         </Link>
       </Col>
     </Row>

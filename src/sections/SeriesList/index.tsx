@@ -1,23 +1,22 @@
-import { List, Typography, Row, Col, Divider } from 'antd';
 import React, { FC, useState, useEffect, useRef } from 'react';
-import { useQuery } from 'react-apollo';
 import { RouteComponentProps, Link } from 'react-router-dom';
+import { useQuery } from 'react-apollo';
+import { List, Typography, Row, Col, Divider } from 'antd';
+import { SeriesListPagination } from './components';
+import { ErrorMessage, SeriesCard, Spinner } from '../../lib/components';
+import { SERIES_LIST } from '../../lib/graphql';
 import { SeriesListFilter, GenresType } from '../../lib/graphql/globalTypes';
 import {
   SeriesList as SeriesListData,
   SeriesListVariables,
 } from '../../lib/graphql/queries/SeriesList/__generated__/SeriesList';
-import { ErrorMessage, SeriesCard } from '../../lib/components';
-
-import { SERIES_LIST } from '../../lib/graphql';
-import { SeriesListPagination } from './components';
 
 interface MatchParams {
   genres: string;
   name: string;
 }
 
-const { Title, Paragraph, Text } = Typography;
+const { Paragraph, Text, Title } = Typography;
 const PAGE_LIMIT = 4;
 
 export const SeriesList: FC<RouteComponentProps<MatchParams>> = ({ match }) => {
@@ -30,7 +29,7 @@ export const SeriesList: FC<RouteComponentProps<MatchParams>> = ({ match }) => {
 
   const [page, setPage] = useState(1);
 
-  const { data, loading, error } = useQuery<
+  const { loading, error, data } = useQuery<
     SeriesListData,
     SeriesListVariables
   >(SERIES_LIST, {
@@ -50,7 +49,15 @@ export const SeriesList: FC<RouteComponentProps<MatchParams>> = ({ match }) => {
     valueRef.current = match.params[nameRef];
   }, [nameRef, match.params]);
 
-  const seriesList = data ? data.seriesList : null;
+  if (loading) {
+    return <Spinner />;
+  }
+
+  if (error) {
+    return <ErrorMessage />;
+  }
+
+  const seriesList = data?.seriesList || null;
 
   const seriesListSectionElement =
     seriesList && seriesList.result.length ? (
@@ -75,8 +82,8 @@ export const SeriesList: FC<RouteComponentProps<MatchParams>> = ({ match }) => {
     ) : (
       <>
         <Paragraph>
-          No result fount for query
-          <Text mark>`&quot;`{valueRef.current}`&quot;`</Text>
+          No result fount for query{' '}
+          <Text mark>&quot;{valueRef.current}&quot;</Text>
         </Paragraph>
         <Paragraph>
           Be the first person to create a{' '}
@@ -85,19 +92,12 @@ export const SeriesList: FC<RouteComponentProps<MatchParams>> = ({ match }) => {
       </>
     );
 
-  if (loading) {
-    return <p>loading</p>;
-  }
-
-  if (error) {
-    return <ErrorMessage />;
-  }
   return (
     <>
       <Row>
         <Col xs={24}>
           <Title level={3}>
-            Results for {nameRef} `&quot;`{valueRef.current}`&quot;`
+            Results for {nameRef} &quot;{valueRef.current}&quot;
           </Title>
           <Divider />
         </Col>

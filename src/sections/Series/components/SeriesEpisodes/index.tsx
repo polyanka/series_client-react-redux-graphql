@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { Series } from '../../../../lib/graphql/queries/Series/__generated__/Series';
 import { Typography, List, Row, Col, Space, Affix, Select } from 'antd';
 import { EpisodesFilter } from '../../../../lib/graphql/globalTypes';
+import { Series } from '../../../../lib/graphql/queries/Series/__generated__/Series';
 
 interface Props {
   seriesEpisodes: Series['series']['episodes'];

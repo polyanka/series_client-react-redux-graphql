@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Divider, Row, Typography, Col, List } from 'antd';
+import { Col, Divider, Row, List, Typography } from 'antd';
 import { Series as SeriesData } from '../../../../lib/graphql/queries/Series/__generated__/Series';
 
 interface Props {
