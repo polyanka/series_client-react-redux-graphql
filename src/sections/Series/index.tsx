@@ -1,7 +1,6 @@
 import React, { FC, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
-import { Row, Col } from 'antd';
 import {
   Series as SeriesData,
   SeriesVariables,

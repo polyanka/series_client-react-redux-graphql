@@ -6,7 +6,7 @@ interface Props {
   series: SeriesData['series'];
 }
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 
 export const SeriesDetails: FC<Props> = ({ series }) => {
   return (

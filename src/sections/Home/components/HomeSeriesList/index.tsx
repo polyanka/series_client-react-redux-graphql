@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { List, Typography, Row, Col, Space } from 'antd';
+import { List, Typography } from 'antd';
 import { SeriesCard } from '../../../../lib/components/SeriesCard';
 import { SeriesList } from '../../../../lib/graphql/queries/SeriesList/__generated__/SeriesList';
 

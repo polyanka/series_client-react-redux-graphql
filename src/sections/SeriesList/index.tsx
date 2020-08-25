@@ -48,7 +48,7 @@ export const SeriesList: FC<RouteComponentProps<MatchParams>> = ({ match }) => {
   useEffect(() => {
     setPage(1);
     valueRef.current = match.params[nameRef];
-  }, [match.params[nameRef]]);
+  }, [nameRef, match.params]);
 
   const seriesList = data ? data.seriesList : null;
 
@@ -75,7 +75,8 @@ export const SeriesList: FC<RouteComponentProps<MatchParams>> = ({ match }) => {
     ) : (
       <>
         <Paragraph>
-          No result fount for query <Text mark>"{valueRef.current}"</Text>
+          No result fount for query
+          <Text mark>`&quot;`{valueRef.current}`&quot;`</Text>
         </Paragraph>
         <Paragraph>
           Be the first person to create a{' '}
@@ -96,7 +97,7 @@ export const SeriesList: FC<RouteComponentProps<MatchParams>> = ({ match }) => {
       <Row>
         <Col xs={24}>
           <Title level={3}>
-            Results for {nameRef} "{valueRef.current}"
+            Results for {nameRef} `&quot;`{valueRef.current}`&quot;`
           </Title>
           <Divider />
         </Col>
