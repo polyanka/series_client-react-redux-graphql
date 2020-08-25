@@ -1,6 +1,11 @@
 {
-  "name": "client",
+  "name": "series_client-react-redux-graphql",
   "version": "0.1.0",
+  "description": "Сlient part of the App for searching series by name and genre, viewing description and episodes",
+  "main": "index.tsx",
+  "keywords": [],
+  "author": "polyanka",
+  "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.10.3",
     "@babel/plugin-transform-typescript": "^7.10.5",
@@ -42,9 +47,6 @@
     "react-router-dom": "^5.2.0",
     "typescript": "^3.7.5"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "scripts": {
     "watch": "webpack-dev-server --open --watch --hot --mode development",
     "build": "webpack --mode production",
