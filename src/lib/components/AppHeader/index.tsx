@@ -22,7 +22,7 @@ export const AppHeader = withRouter(
       const timmedValue = value.trim();
 
       if (timmedValue) {
-        history.push(`/series/${timmedValue}`);
+        history.push(`/series/name/${timmedValue}`);
       }
     };
 

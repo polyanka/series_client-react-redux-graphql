@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { useQuery } from 'react-apollo';
-import { HomeSearch, HomeSeriesList } from './components';
+import { GenreSearchBar, ListOfPopularSeries } from './components';
 import { ErrorMessage, Spinner } from '../../lib/components';
 import { SERIES_LIST } from '../../lib/graphql';
 import { SeriesListFilter } from '../../lib/graphql/globalTypes';
@@ -34,12 +34,7 @@ export const Home: FC = () => {
     }
 
     if (data) {
-      return (
-        <HomeSeriesList
-          title="Premium TV Series"
-          seriesList={data.seriesList.result}
-        />
-      );
+      return <ListOfPopularSeries seriesList={data.seriesList.result} />;
     }
 
     return null;
@@ -47,7 +42,7 @@ export const Home: FC = () => {
 
   return (
     <>
-      <HomeSearch />
+      <GenreSearchBar />
       <RenderSeriesSection />
     </>
   );

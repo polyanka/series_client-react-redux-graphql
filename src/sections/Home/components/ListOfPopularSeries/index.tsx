@@ -4,16 +4,15 @@ import { SeriesCard } from '../../../../lib/components/SeriesCard';
 import { SeriesList } from '../../../../lib/graphql/queries/SeriesList/__generated__/SeriesList';
 
 interface Props {
-  title: string;
   seriesList: SeriesList['seriesList']['result'];
 }
 
 const { Title } = Typography;
 
-export const HomeSeriesList: FC<Props> = ({ title, seriesList }) => {
+export const ListOfPopularSeries: FC<Props> = ({ seriesList }) => {
   return (
     <>
-      <Title level={2}>{title}</Title>
+      <Title level={2}>Premium TV Series</Title>
       <List
         grid={{ gutter: 16, column: 4, xs: 1, sm: 2, lg: 4 }}
         dataSource={seriesList}

@@ -1,3 +1,2 @@
-export * from './HomeSearch';
-export * from './HomeSeriesList';
-export * from '../../../lib/components/SeriesCard';
+export * from './GenreSearchBar';
+export * from './ListOfPopularSeries';

@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { Card, Col, Row } from 'antd';
 import { Link } from 'react-router-dom';
 
-export const HomeSearch: FC = () => {
+export const GenreSearchBar: FC = () => {
   return (
     <Row>
       <Col xs={12} md={6}>

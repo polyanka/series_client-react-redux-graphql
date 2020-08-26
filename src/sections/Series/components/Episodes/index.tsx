@@ -15,7 +15,7 @@ interface Props {
 const { Title } = Typography;
 const { Option } = Select;
 
-export const SeriesEpisodes: FC<Props> = ({
+export const Episodes: FC<Props> = ({
   seriesEpisodes,
   episodesFilter,
   episodesLimit,
@@ -26,7 +26,7 @@ export const SeriesEpisodes: FC<Props> = ({
   const total = seriesEpisodes ? seriesEpisodes.total : null;
   const result = seriesEpisodes ? seriesEpisodes.result : null;
 
-  const seriesEpisodesList = (
+  const episodesList = (
     <List
       itemLayout="horizontal"
       dataSource={result ? result : undefined}
@@ -48,7 +48,7 @@ export const SeriesEpisodes: FC<Props> = ({
     />
   );
 
-  const listingBookingsElement = seriesEpisodes ? (
+  return seriesEpisodes ? (
     <>
       <Row>
         <Col>
@@ -72,9 +72,7 @@ export const SeriesEpisodes: FC<Props> = ({
       </Row>
 
       <Title level={4}>Episodes</Title>
-      {seriesEpisodesList}
+      {episodesList}
     </>
   ) : null;
-
-  return listingBookingsElement;
 };

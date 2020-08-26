@@ -34,10 +34,12 @@ export const SeriesList: FC<RouteComponentProps<MatchParams>> = ({ match }) => {
     SeriesListVariables
   >(SERIES_LIST, {
     variables: {
-      genres:
-        GenresType[
-          valueRef.current.toLocaleUpperCase() as keyof typeof GenresType
-        ],
+      [nameRef]:
+        nameRef === 'genres'
+          ? GenresType[
+              valueRef.current.toLocaleUpperCase() as keyof typeof GenresType
+            ]
+          : valueRef.current,
       filter,
       limit: PAGE_LIMIT,
       page,

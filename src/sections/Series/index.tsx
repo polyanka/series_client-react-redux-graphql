@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
-import { SeriesDetails, SeriesEpisodes } from './components';
+import { Episodes, SeriesDetails } from './components';
 import { ErrorMessage, Spinner } from '../../lib/components';
 import { SERIES } from '../../lib/graphql';
 import { EpisodesFilter } from '../../lib/graphql/globalTypes';
@@ -52,7 +52,7 @@ export const Series: FC<RouteComponentProps<MatchParams>> = ({ match }) => {
   const seriesEpisodes = series?.episodes || null;
 
   const seriesEpisodesElement = seriesEpisodes ? (
-    <SeriesEpisodes
+    <Episodes
       seriesEpisodes={seriesEpisodes}
       episodesPage={episodesPage}
       setEpisodesPage={setEpisodesPage}
